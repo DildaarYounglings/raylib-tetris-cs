@@ -19,7 +19,7 @@ public class Grid
         Initialize();
         colors = Utils.GetCellColors();
     }
-    void Initialize()
+    public void Initialize()
     {
         for (int row = 0; row < numRows; row++)
         {
@@ -37,6 +37,46 @@ public class Grid
             {
                 Console.Write("" + grid[row, column]);
             }
+        }
+    }
+    public bool IsRowFull(int row)
+    {
+        for(int column = 0; column < numCols; column++)
+        {
+            if(grid[row,column] == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void MoveRowDown(int row,int numRows)
+    {
+        for(int column = 0; column < numCols; column++)
+        {
+            grid[row + numRows,column] = grid[row,column];
+            grid[row,column] = 0;
+        }
+    }
+    public int ClearFullRows()
+    {
+        int completed = 0;
+        for(int row = numRows-1; row>=0; row--)
+        {
+            if(IsRowFull(row))
+            {
+                ClearRow(row);
+                completed++;
+            }else if(completed > 0){
+                MoveRowDown(row,completed);
+            }
+        }
+        return completed;
+    }
+    public void ClearRow(int row)
+    {
+        for(int column = 0; column < numCols; column++)
+        {
+            grid[row,column] = 0;
         }
     }
     public bool IsCellOutside(int row, int column)

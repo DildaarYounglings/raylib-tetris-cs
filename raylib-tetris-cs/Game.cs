@@ -13,6 +13,7 @@ namespace Tetris_Game_Class;
 
 public class TetrisGame
 {
+    public bool gameOver;
     public Grid grid;
     List<Block> blocks;
     Block currentBlock, nextBlock;
@@ -22,6 +23,7 @@ public class TetrisGame
         blocks = GetAllBlocks();
         currentBlock= GetRamdomBlock();
         nextBlock = GetRamdomBlock();
+        gameOver = false;
     }
     public Block GetRamdomBlock()
     {
@@ -50,6 +52,10 @@ public class TetrisGame
     public void HandleInput()
     {
         int keyPressed = Raylib.GetKeyPressed();
+        if(gameOver && keyPressed != 0){
+            gameOver = false;
+            Reset();
+        }
         switch (keyPressed)
         {
             case (int)KeyboardKey.Left:
@@ -69,29 +75,45 @@ public class TetrisGame
 
         }
     }
+
+    private void Reset()
+    {
+        grid.Initialize();
+        blocks = GetAllBlocks();
+        nextBlock = GetRamdomBlock();
+    }
+
     public void MoveBlockLeft()
     {
-        currentBlock.Move(0, -1);
-        if (IsBlockOutside())
+        if(!gameOver)
         {
-            currentBlock.Move(0, 1);
+            currentBlock.Move(0, -1);
+            if (IsBlockOutside() || BlockFits() == false)
+            {
+                currentBlock.Move(0, 1);
+            }
+
         }
     }
     public void MoveBlockRight()
     {
-        currentBlock.Move(0, 1);
-        if (IsBlockOutside())
-        {
-            currentBlock.Move(0, -1);
+        if(!gameOver){
+            currentBlock.Move(0, 1);
+            if (IsBlockOutside() || BlockFits() == false)
+            {
+                currentBlock.Move(0, -1);
+            }
         }
     }
     public void MoveBlockDown()
     {
-        currentBlock.Move(1,0);
-        if (IsBlockOutside())
-        {
-            currentBlock.Move(-1, 0);
-            LockBlock();
+        if(!gameOver){
+            currentBlock.Move(1,0);
+            if (IsBlockOutside() || BlockFits() == false)
+            {
+                currentBlock.Move(-1, 0);
+                LockBlock();
+            }
         }
     }
     public void LockBlock()
@@ -102,12 +124,24 @@ public class TetrisGame
             grid.grid[item.row, item.column] = currentBlock.id;
         }
         currentBlock = nextBlock;
+        if(BlockFits() == false)
+        {
+            gameOver = true;
+        }
         nextBlock = GetRamdomBlock();
+        grid.ClearFullRows();
     }
     public bool BlockFits()
     {
-
-        return false;
+        List<Position> tiles = currentBlock.GetCellPositions();
+        foreach (Position item in tiles)
+        {
+            if(grid.IsCellEmpty(item.row,item.column) == false)
+            {
+                return false;
+            }
+        }
+        return true;
     }
     public void RotateBlock()
     {
