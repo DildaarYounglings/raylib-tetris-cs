@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "raylib-tetris-cs", "raylib-tetris-cs\raylib-tetris-cs.csproj", "{DC7C1DE9-0533-4152-B667-47146CA98E18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC7C1DE9-0533-4152-B667-47146CA98E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7C1DE9-0533-4152-B667-47146CA98E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7C1DE9-0533-4152-B667-47146CA98E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7C1DE9-0533-4152-B667-47146CA98E18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BE27992-8639-4736-B9EE-0458C5EF7B89}
+	EndGlobalSection
+EndGlobal
