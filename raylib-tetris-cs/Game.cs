@@ -1,5 +1,5 @@
 ﻿using BlockClass;
-using GridClass;
+using Tetris_Grid_Class;
 using Blocks;
 using System;
 using System.Collections.Generic;

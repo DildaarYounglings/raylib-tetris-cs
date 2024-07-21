@@ -1,5 +1,5 @@
 ﻿using Raylib_cs;
-using UtilsClass;
+using static  UtilsClass.Utils;
 using Tetris_Game_Class;
 namespace MainApp;
 class Program
@@ -8,7 +8,7 @@ class Program
     public static void Main()
     {
 
-        Color darkBlue = Utils.Get_Raylib_Color(44,44,127,255);
+        Color darkBlue = Get_Raylib_Color(44,44,127,255);
         int screenWidth=300;
         int screenHeight=600;
         Raylib.InitWindow(screenWidth,screenHeight, "raylib-Tetris-C-Sharp");

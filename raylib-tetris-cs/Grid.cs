@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UtilsClass;
+using static UtilsClass.Utils;
 
-namespace GridClass;
+namespace Tetris_Grid_Class;
 public class Grid
 {
-    List<Color> colors = new List<Color>() { };
+    List<Color> colors = new();
     public int[,] grid = new int[20, 10];
 
     private int numRows, numCols, cellSize;
@@ -17,7 +17,7 @@ public class Grid
     {
         numRows = 20; numCols = 10; cellSize = 30;
         Initialize();
-        colors = Utils.GetCellColors();
+        colors = GetCellColors();
     }
     public void Initialize()
     {

@@ -19,5 +19,5 @@ C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\bin\Debug\net8.0
 C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\bin\Debug\net8.0\runtimes\win-x64\native\raylib.dll
 C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\bin\Debug\net8.0\runtimes\win-x86\native\raylib.dll
 C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\obj\Debug\net8.0\raylib-tetris-cs.csproj.AssemblyReference.cache
-C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\obj\Debug\net8.0\raylib-tetris-cs.csproj.CopyComplete
 C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\obj\Debug\net8.0\raylib-tetris-cs.sourcelink.json
+C:\Users\Dildaar\source\repos\raylib-tetris-cs\raylib-tetris-cs\obj\Debug\net8.0\raylib-t.9AE48F88.Up2Date
