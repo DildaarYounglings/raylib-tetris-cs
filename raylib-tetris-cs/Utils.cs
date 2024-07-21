@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UtilsClass;
-public class Utils
+public static class Utils
 {
     public static List<Color> GetCellColors()
     {
