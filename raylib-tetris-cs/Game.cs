@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Raylib_cs;
 using PositionClass;
+using UtilsClass;
 
 namespace Tetris_Game_Class;
 
-public class TetrisGame
+public class TetrisGame:IAny
 {
     public bool gameOver;
     public Grid grid;
@@ -146,7 +147,7 @@ public class TetrisGame
     public void RotateBlock()
     {
         currentBlock.Rotate();
-        if (IsBlockOutside())
+        if (IsBlockOutside()||BlockFits()==false)
         {
             currentBlock.UndoRotation();
         }

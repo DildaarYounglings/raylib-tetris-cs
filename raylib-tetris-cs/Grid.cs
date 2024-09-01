@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UtilsClass;
 using static UtilsClass.Utils;
 
 namespace Tetris_Grid_Class;
-public class Grid
+public class Grid:IAny
 {
     List<Color> colors = new();
     public int[,] grid = new int[20, 10];
@@ -102,7 +103,7 @@ public class Grid
             for (int column = 0; column < numCols; column++)
             {
                 int cellValue = grid[row, column];
-                Raylib.DrawRectangle(column * cellSize + 1, row * cellSize + 1, cellSize - 1, cellSize - 1, colors[cellValue]);
+                Raylib.DrawRectangle(column * cellSize + 11, row * cellSize + 11, cellSize - 1, cellSize - 1, colors[cellValue]);
             }
         }
     }

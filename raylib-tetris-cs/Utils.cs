@@ -4,10 +4,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace UtilsClass;
-public static class Utils
+interface IAny;
+public class Utils:IAny
 {
+    public static unsafe sbyte* String_To_SBytePointer(string str)
+    {
+        // Check if the string is null
+        if (str == null) throw new ArgumentNullException(nameof(str));
+        
+        // Allocate memory for sbyte array
+        int length = str.Length;
+        sbyte* ptr = (sbyte*) Marshal.AllocHGlobal(length);
+        
+        // Copy characters to sbyte array
+        fixed (char* charPtr = str)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                ptr[i] = (sbyte)charPtr[i];
+            }
+        }
+        
+        return ptr;
+    }
+    public static bool EventTriggered(double interval,ref double lastUpdateTime)
+    {
+        double currentTime = Raylib.GetTime();
+        if (currentTime - lastUpdateTime >= interval)
+        {
+            lastUpdateTime = currentTime;
+            return true;
+        }
+        return false;
+    }
     public static List<Color> GetCellColors()
     {
         Color darkGrey = Get_Raylib_Color(26, 31, 40,255);
@@ -18,7 +50,7 @@ public static class Utils
         Color purple = Get_Raylib_Color(166, 0, 247, 255);
         Color cyan = Get_Raylib_Color(21, 204, 209, 255);
         Color blue = Get_Raylib_Color(13, 64, 216, 255);
-        return new List<Color>() { darkGrey, green, red, orange, yellow, purple, cyan, blue };
+        return new(){ darkGrey, green, red, orange, yellow, purple, cyan, blue };
     }
     public static Color Get_Raylib_Color(int red,int green, int blue,int alpha) 
     {
