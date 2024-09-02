@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("raylib-tetris-cs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+589fd3caa28e28a5b6e60683cb8e0f4314a5990f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36ad405c06a99b767471da79da8fdbaa589d2b4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("raylib-tetris-cs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("raylib-tetris-cs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
