@@ -8,6 +8,8 @@ unsafe class Program
     static double lastUpdateTime = 0;
     public static void Main()
     {
+        Font font = Raylib.LoadFontEx("Bigdey_Demo.ttf",64,new int[]{},0);
+        Console.WriteLine($"{font.BaseSize}{font.GetHashCode}{font.GlyphCount}{font.GlyphPadding}");
         Color darkBlue = Get_Raylib_Color(44,44,127,255);
         int screenWidth=500;
         int screenHeight=620;
